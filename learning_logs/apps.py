@@ -1,3 +1,5 @@
+# learning_logs_apps
+
 from django.apps import AppConfig
 
 
