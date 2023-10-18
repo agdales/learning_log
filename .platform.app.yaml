@@ -2,7 +2,7 @@ name: "learning_log_project"
 type: 'python:3.11'
 
 relationships:
-  database: "db:postgresql"
+    postgresdatabase: 'dbpostgres:postgresql'
 
 # The configuration of the app when it's exposed to the web.
 web:
