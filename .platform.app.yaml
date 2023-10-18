@@ -1,4 +1,4 @@
-name: "learning_log_project"
+name: "ll_project"
 type: 'python:3.11'
 
 relationships:
@@ -9,7 +9,7 @@ web:
   upstream:
     socket_family: unix
   commands:
-    start: "gunicorn -w 4 b unix:$SOCKET learning_log_project.wsgi:application"
+    start: "gunicorn -w 4 b unix:$SOCKET ll_project.wsgi:application"
   locations:
     "/":
       passthru: true

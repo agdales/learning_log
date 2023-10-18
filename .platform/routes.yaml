@@ -2,4 +2,4 @@
 
 "https://{default}/":
   type: upstream
-  upstream: learning_logs_project:http
+  upstream: ll_project:http
