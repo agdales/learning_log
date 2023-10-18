@@ -1,0 +1,16 @@
+{%  extends 'learning_logs/base.html' %}
+{% load django_bootstrap5 %}
+
+{% block page_header %}
+    <h1>Registration Form</h1>
+{% endblock page_header %}
+
+{%  block content %}
+    <form action="{%  url 'accounts:register' %}" method="post">
+        {%  csrf_token %}
+{#        {{ form.as_div }}#}
+        {% bootstrap_form form %}
+        {% include "learning_logs/submit_cancel_buttons.html" with submit_name="Register" %}
+    </form>
+
+{% endblock content %}

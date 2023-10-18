@@ -1,0 +1,19 @@
+{%  extends 'learning_logs/base.html' %}
+{%  load django_bootstrap5 %}
+
+{% block page_header %}
+    <h1>Topic: <a href="{% url 'learning_logs:topic' topic.id%}">{{ topic.text }}</a></h1>
+{% endblock page_header %}
+
+{%  block content %}
+    <p>Entry date: {{ entry.date_added|date:'M d, Y H:i' }}</p>
+    <form action="{%  url 'learning_logs:edit_entry' entry.id %}" method="post">
+        {%  csrf_token %}
+        <div class="mb-3 form-floating">
+            {{ form.text }}
+            <label for="entryTextInput">Edit entry</label>
+        </div>
+        {% include "learning_logs/submit_cancel_buttons.html" with submit_name="Save changes" %}
+    </form>
+
+{% endblock content %}

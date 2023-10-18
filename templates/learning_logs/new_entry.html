@@ -1,0 +1,19 @@
+{%  extends 'learning_logs/base.html' %}
+
+{% block page_header %}
+    <h1>Topic: <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></h1>
+{% endblock %}
+
+{%  block content %}
+    <p>Add a new entry</p>
+    <form action="{%  url 'learning_logs:new_entry' topic.id %}" method="post">
+        {%  csrf_token %}
+        {# renders each element in a separate div #}
+        <div class="mb-3 form-floating">
+            {{ form.text }}
+            <label for="entryTextInput">Enter a new entry</label>
+        </div>
+        {% include "learning_logs/submit_cancel_buttons.html" with submit_name="Add entry" %}
+    </form>
+
+{% endblock content %}
